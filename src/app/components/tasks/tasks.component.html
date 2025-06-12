@@ -1,0 +1,10 @@
+<!-- But here we cannot use "task" as it does not exist in add-task so instead we pass in "$event" -->
+<app-add-task (onAddTask)="addTask($event)"></app-add-task>
+
+<!-- Here we are able to use "task" inside the parenthesis because of ngFor loop, we had access to task. -->
+<app-task-item
+ *ngFor="let task of tasks"
+ [task] ="task"
+ (onDeleteTask)="deleteTask(task)"
+ (onToggleReminder)="toggleReminder(task)">
+</app-task-item>
